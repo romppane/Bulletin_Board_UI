@@ -1,0 +1,9 @@
+näkymät
+rautalanka mallit draw.io
+ei tyylitystä!!!
+create react app - typescript
+oma repo, readme:t kuntoon
+
+npm kirjasto
+
+props state tyypitys
