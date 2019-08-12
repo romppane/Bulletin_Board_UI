@@ -1,11 +1,12 @@
 import * as React from 'react';
 import BulletinHeader from './BulletinHeader';
 import BulletinMessage from './BulletinMessage';
+import AvatarIcon from './AvatarIcon';
 
 
 export type BulletinProps = {
   header: string;
-  avatar: string;
+  ownerId: number;
   message: string;
 }
 
@@ -20,11 +21,18 @@ export default class Bulletin extends React.Component<BulletinProps, BulletinSta
     }
   }
   public render() {
-    const {header, avatar, message} = this.props;
+    const {header, ownerId, message} = this.props;
     return (
       <div>
-        <BulletinHeader header={header} avatar={avatar} />
-        <BulletinMessage message={message} />
+        <tr>
+          <td><BulletinHeader header={header} /></td>
+          <td><AvatarIcon id={ownerId} /></td>
+        </tr>
+        <tr>
+          <BulletinMessage message={message} />
+        </tr>
+        
+        
       </div>
     );
   }

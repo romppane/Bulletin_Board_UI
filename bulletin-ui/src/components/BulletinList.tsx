@@ -20,7 +20,6 @@ export default class BulletinList extends React.Component<BulletinListProps, Bul
   }
 
   componentDidMount() {
-    console.log("Did mount")
     fetch('http://localhost:3001/posts')
       .then(responce => responce.json())
       .then(json => this.setState({list: json, isReady: true}))
@@ -29,11 +28,12 @@ export default class BulletinList extends React.Component<BulletinListProps, Bul
 
   public render() {
       const {list, isReady} = this.state;
+      console.log(list)
       if(isReady) {
         return (
           <div>
               {list.map(bulletin => 
-                <Bulletin header={bulletin.category} avatar="AVATAR" message={bulletin.message}/>
+                <Bulletin header={bulletin.category} message={bulletin.message} ownerId={bulletin.ownerId}/>
                 )}
           </div>
         );
