@@ -3,25 +3,23 @@ import Bulletin from './Bulletin';
 
 type BulletinListState = {
   list: any[];
-  isReady: boolean;
 };
 
 export default class BulletinList extends React.Component<{}, BulletinListState> {
   state: Readonly<BulletinListState> = {
-    list: [],
-    isReady: false
+    list: []
   };
 
   componentDidMount() {
     fetch('http://localhost:3001/posts')
       .then(responce => responce.json())
-      .then(json => this.setState({ list: json, isReady: true }))
+      .then(json => this.setState({ list: json }))
       .catch(error => console.log(error));
   }
 
   public render() {
-    const { list, isReady } = this.state;
-    if (isReady) {
+    const { list } = this.state;
+    if (list.length > 0) {
       return (
         <div>
           {list.map(bulletin => (
@@ -34,7 +32,7 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
         </div>
       );
     } else {
-      return <div />;
+      return <div>No Posts</div>;
     }
   }
 }

@@ -7,7 +7,6 @@ type CommentListProps = {
 
 type CommentListState = {
   list: any[];
-  isReady: boolean;
 };
 
 export default class CommentList extends React.Component<CommentListProps, CommentListState> {
@@ -15,8 +14,7 @@ export default class CommentList extends React.Component<CommentListProps, Comme
     super(props);
 
     this.state = {
-      list: [],
-      isReady: false
+      list: []
     };
   }
 
@@ -24,13 +22,13 @@ export default class CommentList extends React.Component<CommentListProps, Comme
     const { postId } = this.props;
     fetch(`http://localhost:3001/posts/${postId}/comments`)
       .then(responce => responce.json())
-      .then(json => this.setState({ list: json, isReady: true }))
+      .then(json => this.setState({ list: json }))
       .catch(error => console.log(error));
   }
 
   public render() {
-    const { list, isReady } = this.state;
-    if (isReady) {
+    const { list } = this.state;
+    if (list.length > 0) {
       return (
         <div>
           {list.map(comment => (
