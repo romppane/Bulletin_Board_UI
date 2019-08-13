@@ -4,26 +4,35 @@ import Bulletin from './Bulletin';
 type BulletinListState = {
   list: any[];
   isReady: boolean;
+  renderObject: JSX.Element;
 };
 
 export default class BulletinList extends React.Component<{}, BulletinListState> {
   state: Readonly<BulletinListState> = {
     list: [],
-    isReady: false
+    isReady: false,
+    renderObject: <div>Loading...</div>
   };
 
-  componentDidMount() {
+  fetchData = () => {
     fetch('http://localhost:3001/posts')
       .then(responce => responce.json())
-      .then(json => this.setState({ list: json, isReady: true }))
-      .catch(error => console.log(error));
-  }
+      .then(json => {
+        this.setState({ list: json, isReady: true });
+        this.handleList();
+      })
+      .catch(error =>
+        this.setState({
+          renderObject: <button onClick={this.fetchData}>Reload component</button>
+        })
+      );
+  };
 
-  public render() {
-    const { list, isReady } = this.state;
-    if (isReady) {
-      if (list.length > 0) {
-        return (
+  handleList = () => {
+    const { list } = this.state;
+    if (list.length > 0) {
+      this.setState({
+        renderObject: (
           <div>
             {list.map(bulletin => (
               <Bulletin
@@ -33,12 +42,19 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
               />
             ))}
           </div>
-        );
-      } else {
-        return <div>No Posts</div>;
-      }
+        )
+      });
     } else {
-      return <div>Loading...</div>;
+      this.setState({ renderObject: <div>No Posts</div> });
     }
-  }
+  };
+
+  componentDidMount = () => {
+    this.fetchData();
+  };
+
+  public render = () => {
+    const { renderObject: returnObject } = this.state;
+    return returnObject;
+  };
 }
