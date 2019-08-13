@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export type AvatarIconProps = {
+type AvatarIconProps = {
   id: number;
 };
 
-export type AvatarIconState = {
+type AvatarIconState = {
   avatar: string;
 };
 

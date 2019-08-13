@@ -1,19 +1,12 @@
 import * as React from 'react';
 
-export type BulletinHeaderProps = {
+type BulletinHeaderProps = {
   header: string;
 };
 
-export type BulletinHeaderState = {};
-
-export default class BulletinHeader extends React.Component<
-  BulletinHeaderProps,
-  BulletinHeaderState
-> {
+export default class BulletinHeader extends React.Component<BulletinHeaderProps> {
   constructor(props: BulletinHeaderProps) {
     super(props);
-
-    this.state = {};
   }
 
   public render() {

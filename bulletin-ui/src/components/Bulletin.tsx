@@ -3,19 +3,15 @@ import BulletinHeader from './BulletinHeader';
 import BulletinMessage from './BulletinMessage';
 import AvatarIcon from './AvatarIcon';
 
-export type BulletinProps = {
+type BulletinProps = {
   header: string;
   ownerId: number;
   message: string;
 };
 
-export type BulletinState = {};
-
-export default class Bulletin extends React.Component<BulletinProps, BulletinState> {
+export default class Bulletin extends React.Component<BulletinProps> {
   constructor(props: BulletinProps) {
     super(props);
-
-    this.state = {};
   }
   public render() {
     const { header, ownerId, message } = this.props;

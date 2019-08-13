@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export type BulletinMessageProps = {
+type BulletinMessageProps = {
   message: string;
 };
 
-export type BulletinMessageState = {
+type BulletinMessageState = {
   expanded: boolean;
 };
 

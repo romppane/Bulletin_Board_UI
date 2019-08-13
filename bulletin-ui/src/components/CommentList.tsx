@@ -1,15 +1,17 @@
 import * as React from 'react';
-import Bulletin from './Bulletin';
+import Comment from './Comment';
 
-type BulletinListProps = {};
+type CommentListProps = {
+  postId: number;
+};
 
-type BulletinListState = {
+type CommentListState = {
   list: any[];
   isReady: boolean;
 };
 
-export default class BulletinList extends React.Component<BulletinListProps, BulletinListState> {
-  constructor(props: BulletinListProps) {
+export default class CommentList extends React.Component<CommentListProps, CommentListState> {
+  constructor(props: CommentListProps) {
     super(props);
 
     this.state = {
@@ -19,7 +21,8 @@ export default class BulletinList extends React.Component<BulletinListProps, Bul
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/posts')
+    const { postId } = this.props;
+    fetch(`http://localhost:3001/posts/${postId}/comments`)
       .then(responce => responce.json())
       .then(json => this.setState({ list: json, isReady: true }))
       .catch(error => console.log(error));
@@ -30,12 +33,8 @@ export default class BulletinList extends React.Component<BulletinListProps, Bul
     if (isReady) {
       return (
         <div>
-          {list.map(bulletin => (
-            <Bulletin
-              header={bulletin.category}
-              message={bulletin.message}
-              ownerId={bulletin.ownerId}
-            />
+          {list.map(comment => (
+            <Comment message={comment.message} />
           ))}
         </div>
       );
