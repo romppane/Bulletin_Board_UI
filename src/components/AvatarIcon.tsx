@@ -19,7 +19,6 @@ export default class AvatarIcon extends React.Component<AvatarIconProps, AvatarI
 
   componentDidMount() {
     const { id } = this.props;
-    console.log(id);
     fetch(`http://localhost:3001/users/${id}`)
       .then(responce => responce.json())
       .then(json => this.setState({ avatar: json.avatar }))
