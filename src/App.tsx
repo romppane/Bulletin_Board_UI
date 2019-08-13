@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <BulletinList />
-      <CommentList postId={4} />
+      <CommentList postId={1} />
     </div>
   );
 };
