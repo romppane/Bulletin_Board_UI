@@ -5,10 +5,6 @@ type CommentProps = {
 };
 
 export default class Comment extends React.Component<CommentProps> {
-  constructor(props: CommentProps) {
-    super(props);
-  }
-
   public render() {
     const { message } = this.props;
     return (

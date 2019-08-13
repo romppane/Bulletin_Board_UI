@@ -14,10 +14,11 @@ export default class BulletinMessage extends React.Component<
 > {
   constructor(props: BulletinMessageProps) {
     super(props);
+
+    this.state = {
+      expanded: false
+    };
   }
-  state: Readonly<BulletinMessageState> = {
-    expanded: false
-  };
 
   private onClick = () => {
     this.setState({

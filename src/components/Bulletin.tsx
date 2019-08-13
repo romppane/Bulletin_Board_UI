@@ -10,9 +10,6 @@ type BulletinProps = {
 };
 
 export default class Bulletin extends React.Component<BulletinProps> {
-  constructor(props: BulletinProps) {
-    super(props);
-  }
   public render() {
     const { header, ownerId, message } = this.props;
     return (
