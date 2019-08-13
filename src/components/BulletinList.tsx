@@ -1,22 +1,16 @@
 import * as React from 'react';
 import Bulletin from './Bulletin';
 
-type BulletinListProps = {};
-
 type BulletinListState = {
   list: any[];
   isReady: boolean;
 };
 
-export default class BulletinList extends React.Component<BulletinListProps, BulletinListState> {
-  constructor(props: BulletinListProps) {
-    super(props);
-
-    this.state = {
-      list: [],
-      isReady: false
-    };
-  }
+export default class BulletinList extends React.Component<{}, BulletinListState> {
+  state: Readonly<BulletinListState> = {
+    list: [],
+    isReady: false
+  };
 
   componentDidMount() {
     fetch('http://localhost:3001/posts')
