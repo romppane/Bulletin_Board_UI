@@ -7,16 +7,17 @@ type BulletinProps = {
   header: string;
   ownerId: number;
   message: string;
+  id: number;
 };
 
 export default class Bulletin extends React.Component<BulletinProps> {
   public render() {
-    const { header, ownerId, message } = this.props;
+    const { header, ownerId, message, id } = this.props;
     return (
       <div>
         <tr>
           <td>
-            <BulletinHeader header={header} />
+            <BulletinHeader header={header} id={id} />
           </td>
           <td>
             <AvatarIcon id={ownerId} />

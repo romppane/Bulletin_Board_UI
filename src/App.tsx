@@ -14,9 +14,7 @@ const App: React.FC = () => {
             <BulletinSubmit ownerId={1} />
             <BulletinList />
           </Route>
-          <Route exact path="/comment">
-            <CommentList postId={1} />
-          </Route>
+          <Route path="/comment/:id" component={CommentList} />
         </Switch>
       </Router>
     </div>

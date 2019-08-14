@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Comment from './Comment';
 import { CommentType } from '../Types';
+import { RouteComponentProps } from 'react-router-dom';
 
-type CommentListProps = {
-  postId: number;
-};
+interface CommentListProps extends RouteComponentProps {}
 
 type CommentListState = {
   list: CommentType[];
@@ -20,8 +19,8 @@ export default class CommentList extends React.Component<CommentListProps, Comme
   }
 
   componentDidMount() {
-    const { postId } = this.props;
-    fetch(`http://localhost:3001/posts/${postId}/comments`)
+    const { id } = this.props.location.state.postId;
+    fetch(`http://localhost:3001/posts/${id}/comments`)
       .then(responce => responce.json())
       .then(json => this.setState({ list: json }))
       .catch(error => console.log(error));

@@ -35,12 +35,14 @@ export default class BulletinSubmit extends React.Component<
         'Content-Type': 'application/json'
       }
     })
-      .then(() =>
+      .then(() => {
         this.setState({
           title: '',
           message: ''
-        })
-      )
+        });
+        // Is there a better way to do this?
+        window.location.reload();
+      })
       .catch(error => console.log(error));
   };
 

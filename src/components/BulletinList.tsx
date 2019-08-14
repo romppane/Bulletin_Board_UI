@@ -45,6 +45,7 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
                   header={bulletin.category}
                   message={bulletin.message}
                   ownerId={bulletin.ownerId}
+                  id={bulletin.id}
                 />
               ))}
             </div>
