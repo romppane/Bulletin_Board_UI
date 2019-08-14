@@ -35,7 +35,7 @@ export default class BulletinSubmit extends React.Component<
         'Content-Type': 'application/json'
       }
     })
-      .then(responce =>
+      .then(() =>
         this.setState({
           title: '',
           message: ''
