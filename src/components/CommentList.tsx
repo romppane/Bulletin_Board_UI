@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Comment from './Comment';
+import { CommentType } from '../Types';
 
 type CommentListProps = {
   postId: number;
 };
 
 type CommentListState = {
-  list: any[];
+  list: CommentType[];
 };
 
 export default class CommentList extends React.Component<CommentListProps, CommentListState> {
