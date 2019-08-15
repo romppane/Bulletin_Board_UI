@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import BulletinList from './components/BulletinList';
-import CommentList from './components/CommentList';
-import BulletinSubmit from './components/BulletinSubmit';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import CommentPage from './pages/CommentPage';
 
 const App: React.FC = () => {
   return (
@@ -11,10 +10,9 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route exact path="/">
-            <BulletinSubmit ownerId={1} />
-            <BulletinList />
+            <MainPage />
           </Route>
-          <Route path="/comment/:id" component={CommentList} />
+          <Route path="/comment/:id" component={CommentPage} />
         </Switch>
       </Router>
     </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Bulletin from './Bulletin';
-import { PostType } from '../Types';
+import { PostType } from '../../Types';
 
 type BulletinListState = {
   list: PostType[];
