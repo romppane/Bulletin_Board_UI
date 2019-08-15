@@ -28,8 +28,9 @@ export default class BulletinSubmit extends React.Component<
       method: 'POST',
       body: JSON.stringify({
         ownerId: this.props.ownerId,
-        category: this.state.title,
-        message: this.state.message
+        title: this.state.title,
+        message: this.state.message,
+        category: 'default'
       }),
       headers: {
         'Content-Type': 'application/json'

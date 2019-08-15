@@ -42,7 +42,7 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
             <div>
               {list.map(bulletin => (
                 <Bulletin
-                  header={bulletin.category}
+                  title={bulletin.title}
                   message={bulletin.message}
                   ownerId={bulletin.ownerId}
                   id={bulletin.id}

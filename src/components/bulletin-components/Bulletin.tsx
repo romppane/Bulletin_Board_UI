@@ -5,7 +5,7 @@ import AvatarIcon from '../AvatarIcon';
 import { Link } from 'react-router-dom';
 
 type BulletinProps = {
-  header: string;
+  title: string;
   ownerId: number;
   message: string;
   id: number;
@@ -13,7 +13,7 @@ type BulletinProps = {
 
 export default class Bulletin extends React.Component<BulletinProps> {
   public render() {
-    const { header, ownerId, message, id } = this.props;
+    const { title, ownerId, message, id } = this.props;
     return (
       <div>
         <tr>
@@ -21,7 +21,7 @@ export default class Bulletin extends React.Component<BulletinProps> {
             to={{
               pathname: `/comment/${id}`,
               state: {
-                header,
+                title,
                 id,
                 ownerId,
                 message
@@ -29,7 +29,7 @@ export default class Bulletin extends React.Component<BulletinProps> {
             }}
           >
             <td>
-              <BulletinHeader header={header} />
+              <BulletinHeader title={title} />
             </td>
           </Link>
           <td>

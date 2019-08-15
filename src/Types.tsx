@@ -1,4 +1,5 @@
 export type PostType = {
+  title: string;
   category: string;
   message: string;
   id: number;
