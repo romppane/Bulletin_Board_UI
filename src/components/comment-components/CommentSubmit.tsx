@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { postComment } from '../../utility/Data-fetcher';
+import { CommentType } from '../../Types';
 
 type CommentSubmitProps = {
   userId: number;
@@ -18,27 +20,15 @@ export default class CommentSubmit extends React.Component<CommentSubmitProps, C
     };
   }
 
-  callPost = (e: React.FormEvent<HTMLFormElement>) => {
+  callPost = async (e: React.FormEvent<HTMLFormElement>) => {
+    const { userId, postId } = this.props;
+    const { message } = this.state;
     e.preventDefault();
-    fetch('http://localhost:3001/comments', {
-      method: 'POST',
-      body: JSON.stringify({
-        userId: this.props.userId,
-        postId: this.props.postId,
-        message: this.state.message
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(() => {
-        this.setState({
-          message: ''
-        });
-        window.location.reload();
-      })
-      .catch(error => console.log(error));
+    await postComment({ userId, postId, message } as CommentType);
+    this.setState({ message: '' });
+    window.location.reload();
   };
+
   public render() {
     const { message } = this.state;
     return (
