@@ -4,6 +4,10 @@ export const fetchUser = (id: number) => {
   return fetch(`http://localhost:3001/users/${id}`).then(responce => responce.json());
 };
 
+export const fetchPost = (id: string) => {
+  return fetch(`http://localhost:3001/posts/${id}`).then(response => response.json());
+};
+
 export const postComment = (comment: CommentType) => {
   return fetch('http://localhost:3001/comments', {
     method: 'POST',

@@ -12,7 +12,7 @@ const App: React.FC = () => {
           <Route exact path="/">
             <MainPage />
           </Route>
-          <Route path="/comment/:id" component={CommentPage} />
+          <Route path="/post/:id" component={CommentPage} />
         </Switch>
       </Router>
     </div>

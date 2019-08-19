@@ -1,4 +1,4 @@
-enum Categories {
+export enum Categories {
   Default = 'default',
   Other = 'other'
 }

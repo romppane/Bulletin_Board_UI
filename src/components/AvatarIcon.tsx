@@ -14,7 +14,7 @@ export default class AvatarIcon extends React.Component<AvatarIconProps, AvatarI
     super(props);
 
     this.state = {
-      avatar: 'Avatar'
+      avatar: ''
     };
   }
 

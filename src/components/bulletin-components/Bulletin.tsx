@@ -19,13 +19,7 @@ export default class Bulletin extends React.Component<BulletinProps> {
         <tr>
           <Link
             to={{
-              pathname: `/comment/${id}`,
-              state: {
-                title,
-                id,
-                ownerId,
-                message
-              }
+              pathname: `/post/${id}`
             }}
           >
             <td>
