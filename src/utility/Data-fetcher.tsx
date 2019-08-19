@@ -1,11 +1,13 @@
 import { CommentType } from '../Types';
 
-export const fetchUser = (id: number) => {
-  return fetch(`http://localhost:3001/users/${id}`).then(responce => responce.json());
+export const fetchUser = async (id: number) => {
+  const responce = await fetch(`http://localhost:3001/users/${id}`).then(res => res.json());
+  return responce;
 };
 
-export const fetchPost = (id: string) => {
-  return fetch(`http://localhost:3001/posts/${id}`).then(response => response.json());
+export const fetchPost = async (id: string) => {
+  const responce = await fetch(`http://localhost:3001/posts/${id}`).then(res => res.json());
+  return responce;
 };
 
 export const postComment = (comment: CommentType) => {
@@ -22,4 +24,16 @@ export const postComment = (comment: CommentType) => {
   }).catch(error => {
     console.log(error);
   });
+};
+
+export const fetchComments = async (id: number) => {
+  const responce = await fetch(`http://localhost:3001/posts/${id}/comments`).then(res =>
+    res.json()
+  );
+  return responce;
+};
+
+export const fetchPosts = async () => {
+  const responce = await fetch('http://localhost:3001/posts').then(res => res.json());
+  return responce;
 };

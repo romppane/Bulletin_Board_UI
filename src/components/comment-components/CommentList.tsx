@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Comment from './Comment';
 import { CommentType } from '../../Types';
+import { fetchComments } from '../../utility/Data-fetcher';
 
 type CommentListProps = {
   id: number;
@@ -21,8 +22,7 @@ export default class CommentList extends React.Component<CommentListProps, Comme
 
   componentDidMount() {
     const { id } = this.props;
-    fetch(`http://localhost:3001/posts/${id}/comments`)
-      .then(responce => responce.json())
+    fetchComments(id)
       .then(json => this.setState({ list: json }))
       .catch(error => console.log(error));
   }
