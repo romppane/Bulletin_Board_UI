@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import { PostType, Categories } from '../Types';
 import { fetchPost } from '../utility/Data-fetcher';
 
-interface CommentPageProps extends RouteComponentProps<{ id: string }> {}
+interface PostPageProps extends RouteComponentProps<{ id: string }> {}
 
 type PostTypeState = PostType & { isReady: boolean };
 
-export default class CommentPage extends React.Component<CommentPageProps, PostTypeState> {
-  constructor(props: CommentPageProps) {
+export default class PostPage extends React.Component<PostPageProps, PostTypeState> {
+  constructor(props: PostPageProps) {
     super(props);
 
     this.state = {
