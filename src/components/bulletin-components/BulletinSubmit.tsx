@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { postPost } from '../../utility/Data-fetcher';
+import { Post } from '../../Types';
 
 type BulletinSubmitProps = {
   ownerId: number;
@@ -22,29 +24,18 @@ export default class BulletinSubmit extends React.Component<
     };
   }
 
-  callPost = (e: React.FormEvent<HTMLFormElement>) => {
+  callPost = async (e: React.FormEvent<HTMLFormElement>) => {
+    const { ownerId } = this.props;
+    const { title, message } = this.state;
     e.preventDefault();
-    fetch('http://localhost:3001/posts', {
-      method: 'POST',
-      body: JSON.stringify({
-        ownerId: this.props.ownerId,
-        title: this.state.title,
-        message: this.state.message,
-        category: 'default'
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(() => {
-        this.setState({
-          title: '',
-          message: ''
-        });
-        // Is there a better way to do this?
-        window.location.reload();
-      })
-      .catch(error => console.log(error));
+    // GETS CATEGORY HARD CODED CURRENTLY
+    await postPost({ ownerId, title, message } as Post);
+    this.setState({
+      title: '',
+      message: ''
+    });
+    // Is there a better way to do this?
+    window.location.reload();
   };
 
   public render() {

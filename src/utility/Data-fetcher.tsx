@@ -1,4 +1,4 @@
-import { Comment } from '../Types';
+import { Comment, Post, Categories } from '../Types';
 
 export const fetchUser = async (id: number) => {
   const responce = await fetch(`http://localhost:3001/users/${id}`).then(res => res.json());
@@ -24,6 +24,21 @@ export const postComment = (comment: Comment) => {
   }).catch(error => {
     console.log(error);
   });
+};
+
+export const postPost = (post: Post) => {
+  return fetch('http://localhost:3001/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      ownerId: post.ownerId,
+      title: post.title,
+      message: post.message,
+      category: Categories.Default
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).catch(error => console.log(error));
 };
 
 export const fetchComments = async (id: number) => {
