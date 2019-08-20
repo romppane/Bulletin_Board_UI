@@ -21,8 +21,6 @@ export const postComment = (comment: Comment) => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).catch(error => {
-    console.log(error);
   });
 };
 
@@ -38,7 +36,7 @@ export const postPost = (post: Post) => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).catch(error => console.log(error));
+  });
 };
 
 export const fetchComments = async (id: number) => {
