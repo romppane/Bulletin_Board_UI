@@ -4,12 +4,12 @@ import CommentList from '../components/comment-components/CommentList';
 import { RouteComponentProps } from 'react-router';
 import CommentSubmit from '../components/comment-components/CommentSubmit';
 import { Link } from 'react-router-dom';
-import { PostType, Categories } from '../Types';
+import { Post, Categories } from '../Types';
 import { fetchPost } from '../utility/Data-fetcher';
 
 interface PostPageProps extends RouteComponentProps<{ id: string }> {}
 
-type PostTypeState = PostType & { isReady: boolean };
+type PostTypeState = Post & { isReady: boolean };
 
 export default class PostPage extends React.Component<PostPageProps, PostTypeState> {
   constructor(props: PostPageProps) {

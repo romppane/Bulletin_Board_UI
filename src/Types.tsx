@@ -3,7 +3,7 @@ export enum Categories {
   Other = 'other'
 }
 
-export type PostType = {
+export type Post = {
   title: string;
   category: Categories;
   message: string;
@@ -12,14 +12,14 @@ export type PostType = {
   views: number;
 };
 
-export type CommentType = {
+export type Comment = {
   message: string;
   id?: number;
   userId: number;
   postId: number;
 };
 
-export type UserType = {
+export type User = {
   id?: number;
   avatar: string;
 };

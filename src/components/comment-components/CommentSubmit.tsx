@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { postComment } from '../../utility/Data-fetcher';
-import { CommentType } from '../../Types';
+import { Comment } from '../../Types';
 
 type CommentSubmitProps = {
   userId: number;
@@ -24,7 +24,7 @@ export default class CommentSubmit extends React.Component<CommentSubmitProps, C
     const { userId, postId } = this.props;
     const { message } = this.state;
     e.preventDefault();
-    await postComment({ userId, postId, message } as CommentType);
+    await postComment({ userId, postId, message } as Comment);
     this.setState({ message: '' });
     window.location.reload();
   };

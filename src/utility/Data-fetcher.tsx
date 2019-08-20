@@ -1,4 +1,4 @@
-import { CommentType } from '../Types';
+import { Comment } from '../Types';
 
 export const fetchUser = async (id: number) => {
   const responce = await fetch(`http://localhost:3001/users/${id}`).then(res => res.json());
@@ -10,7 +10,7 @@ export const fetchPost = async (id: string) => {
   return responce;
 };
 
-export const postComment = (comment: CommentType) => {
+export const postComment = (comment: Comment) => {
   return fetch('http://localhost:3001/comments', {
     method: 'POST',
     body: JSON.stringify({

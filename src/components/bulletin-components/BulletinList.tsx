@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Bulletin from './Bulletin';
-import { PostType } from '../../Types';
+import { Post } from '../../Types';
 import { fetchPosts } from '../../utility/Data-fetcher';
 
 type BulletinListState = {
-  list: PostType[];
+  list: Post[];
   isReady: boolean;
   error: boolean;
 };
