@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { postPost } from '../../utility/Data-fetcher';
+import { createPost } from '../../utility/Data-fetcher';
 import { Post } from '../../Types';
 
 type BulletinSubmitProps = {
@@ -24,12 +24,12 @@ export default class BulletinSubmit extends React.Component<
     };
   }
 
-  callPost = async (e: React.FormEvent<HTMLFormElement>) => {
+  callCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     const { ownerId } = this.props;
     const { title, message } = this.state;
     e.preventDefault();
     // GETS CATEGORY HARD CODED CURRENTLY
-    await postPost({ ownerId, title, message } as Post);
+    await createPost({ ownerId, title, message } as Post);
     this.setState({
       title: '',
       message: ''
@@ -41,7 +41,7 @@ export default class BulletinSubmit extends React.Component<
   public render() {
     const { message, title } = this.state;
     return (
-      <form onSubmit={e => this.callPost(e)}>
+      <form onSubmit={e => this.callCreate(e)}>
         <input
           name="Title"
           value={title}

@@ -10,7 +10,7 @@ export const fetchPost = async (id: string) => {
   return responce;
 };
 
-export const postComment = (comment: Comment) => {
+export const createComment = (comment: Comment) => {
   return fetch('http://localhost:3001/comments', {
     method: 'POST',
     body: JSON.stringify({
@@ -24,7 +24,7 @@ export const postComment = (comment: Comment) => {
   });
 };
 
-export const postPost = (post: Post) => {
+export const createPost = (post: Post) => {
   return fetch('http://localhost:3001/posts', {
     method: 'POST',
     body: JSON.stringify({

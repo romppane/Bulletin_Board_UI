@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { postComment } from '../../utility/Data-fetcher';
+import { createComment } from '../../utility/Data-fetcher';
 import { Comment } from '../../Types';
 
 type CommentSubmitProps = {
@@ -20,11 +20,11 @@ export default class CommentSubmit extends React.Component<CommentSubmitProps, C
     };
   }
 
-  callPost = async (e: React.FormEvent<HTMLFormElement>) => {
+  callCreate = async (e: React.FormEvent<HTMLFormElement>) => {
     const { userId, postId } = this.props;
     const { message } = this.state;
     e.preventDefault();
-    await postComment({ userId, postId, message } as Comment);
+    await createComment({ userId, postId, message } as Comment);
     this.setState({ message: '' });
     window.location.reload();
   };
@@ -33,7 +33,7 @@ export default class CommentSubmit extends React.Component<CommentSubmitProps, C
     const { message } = this.state;
     return (
       <div>
-        <form onSubmit={e => this.callPost(e)}>
+        <form onSubmit={e => this.callCreate(e)}>
           <input
             name="Message"
             value={message}
