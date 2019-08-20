@@ -33,7 +33,7 @@ export default class CommentList extends React.Component<CommentListProps, Comme
       return (
         <div>
           {list.map(comment => (
-            <CommentMessage message={comment.message} />
+            <CommentMessage message={comment.message} key={comment.id} />
           ))}
         </div>
       );

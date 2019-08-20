@@ -16,23 +16,23 @@ export default class Bulletin extends React.Component<BulletinProps> {
     const { title, ownerId, message, id } = this.props;
     return (
       <div>
-        <tr>
+        <div>
           <Link
             to={{
               pathname: `/post/${id}`
             }}
           >
-            <td>
+            <div>
               <BulletinHeader title={title} />
-            </td>
+            </div>
           </Link>
-          <td>
+          <div>
             <AvatarIcon id={ownerId} />
-          </td>
-        </tr>
-        <tr>
+          </div>
+        </div>
+        <div>
           <BulletinMessage message={message} />
-        </tr>
+        </div>
       </div>
     );
   }
