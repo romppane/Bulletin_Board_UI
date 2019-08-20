@@ -14,12 +14,12 @@ export type Post = {
 
 export type Comment = {
   message: string;
-  id?: number;
+  id: number;
   userId: number;
   postId: number;
 };
 
 export type User = {
-  id?: number;
+  id: number;
   avatar: string;
 };
