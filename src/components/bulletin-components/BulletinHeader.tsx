@@ -1,16 +1,12 @@
 import * as React from 'react';
 
 type BulletinHeaderProps = {
-  header: string;
+  title: string;
 };
 
 export default class BulletinHeader extends React.Component<BulletinHeaderProps> {
   public render() {
-    const { header } = this.props;
-    return (
-      <div>
-        <p>{header}</p>
-      </div>
-    );
+    const { title } = this.props;
+    return <div>{title}</div>;
   }
 }

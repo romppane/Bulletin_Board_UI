@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { fetchUser } from '../utility/Data-fetcher';
 
 type AvatarIconProps = {
   id: number;
@@ -13,16 +14,13 @@ export default class AvatarIcon extends React.Component<AvatarIconProps, AvatarI
     super(props);
 
     this.state = {
-      avatar: 'Avatar'
+      avatar: ''
     };
   }
 
   componentDidMount() {
     const { id } = this.props;
-    fetch(`http://localhost:3001/users/${id}`)
-      .then(responce => responce.json())
-      .then(json => this.setState({ avatar: json.avatar }))
-      .catch(error => console.log(error));
+    fetchUser(id).then(result => this.setState({ avatar: result.avatar }));
   }
 
   public render() {

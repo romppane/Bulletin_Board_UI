@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Bulletin from './Bulletin';
-import { PostType } from '../Types';
+import { Post } from '../../Types';
+import { fetchPosts } from '../../utility/Data-fetcher';
 
 type BulletinListState = {
-  list: PostType[];
+  list: Post[];
   isReady: boolean;
   error: boolean;
 };
@@ -15,9 +16,8 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
     error: false
   };
 
-  fetchData = () => {
-    fetch('http://localhost:3001/posts')
-      .then(responce => responce.json())
+  initializeData = () => {
+    fetchPosts()
       .then(json => this.setState({ list: json, isReady: true, error: false }))
       .catch(error => {
         this.setState({
@@ -27,14 +27,14 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
   };
 
   componentDidMount = () => {
-    this.fetchData();
+    this.initializeData();
   };
 
   public render = () => {
     const { isReady, list, error } = this.state;
 
     if (error) {
-      return <button onClick={this.fetchData}>Reload component</button>;
+      return <button onClick={this.initializeData}>Reload component</button>;
     } else {
       if (isReady) {
         if (list.length > 0) {
@@ -42,9 +42,11 @@ export default class BulletinList extends React.Component<{}, BulletinListState>
             <div>
               {list.map(bulletin => (
                 <Bulletin
-                  header={bulletin.category}
+                  title={bulletin.title}
                   message={bulletin.message}
                   ownerId={bulletin.ownerId}
+                  id={bulletin.id}
+                  key={bulletin.id}
                 />
               ))}
             </div>

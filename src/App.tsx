@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import BulletinList from './components/BulletinList';
-import CommentList from './components/CommentList';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import PostPage from './pages/PostPage';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <BulletinList />
-      <CommentList postId={1} />
+      <Router>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/post/:id" component={PostPage} />
+      </Router>
     </div>
   );
 };

@@ -1,13 +1,14 @@
 import * as React from 'react';
-import Comment from './Comment';
-import { CommentType } from '../Types';
+import CommentMessage from './CommentMessage';
+import { Comment } from '../../Types';
+import { fetchComments } from '../../utility/Data-fetcher';
 
 type CommentListProps = {
-  postId: number;
+  id: number;
 };
 
 type CommentListState = {
-  list: CommentType[];
+  list: Comment[];
 };
 
 export default class CommentList extends React.Component<CommentListProps, CommentListState> {
@@ -20,9 +21,8 @@ export default class CommentList extends React.Component<CommentListProps, Comme
   }
 
   componentDidMount() {
-    const { postId } = this.props;
-    fetch(`http://localhost:3001/posts/${postId}/comments`)
-      .then(responce => responce.json())
+    const { id } = this.props;
+    fetchComments(id)
       .then(json => this.setState({ list: json }))
       .catch(error => console.log(error));
   }
@@ -33,7 +33,7 @@ export default class CommentList extends React.Component<CommentListProps, Comme
       return (
         <div>
           {list.map(comment => (
-            <Comment message={comment.message} />
+            <CommentMessage message={comment.message} key={comment.id} />
           ))}
         </div>
       );
