@@ -1,19 +1,19 @@
 import * as React from 'react';
 
-type IBulletinSubmitProps = {
+type BulletinSubmitProps = {
   ownerId: number;
 };
 
-type IBulletinSubmitState = {
+type BulletinSubmitState = {
   title: string;
   message: string;
 };
 
 export default class BulletinSubmit extends React.Component<
-  IBulletinSubmitProps,
-  IBulletinSubmitState
+  BulletinSubmitProps,
+  BulletinSubmitState
 > {
-  constructor(props: IBulletinSubmitProps) {
+  constructor(props: BulletinSubmitProps) {
     super(props);
 
     this.state = {
