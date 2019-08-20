@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import CommentPage from './pages/CommentPage';
 
@@ -8,12 +8,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route path="/post/:id" component={CommentPage} />
-        </Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/post/:id" component={CommentPage} />
       </Router>
     </div>
   );
