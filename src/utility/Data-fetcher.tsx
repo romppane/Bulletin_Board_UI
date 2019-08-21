@@ -39,7 +39,7 @@ export const createPost = (post: Post) => {
   });
 };
 
-export const fetchComments = async (id: number) => {
+export const fetchComments = async (id: string) => {
   const responce = await fetch(`http://localhost:3001/posts/${id}/comments`).then(res =>
     res.json()
   );

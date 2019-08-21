@@ -5,6 +5,7 @@ import { Comment } from '../../Types';
 type CommentSubmitProps = {
   userId: number;
   postId: number;
+  callback: Function;
 };
 
 type CommentSubmitState = {
@@ -21,12 +22,12 @@ export default class CommentSubmit extends React.Component<CommentSubmitProps, C
   }
 
   callCreate = async (e: React.FormEvent<HTMLFormElement>) => {
-    const { userId, postId } = this.props;
+    const { userId, postId, callback } = this.props;
     const { message } = this.state;
     e.preventDefault();
     await createComment({ userId, postId, message } as Comment);
     this.setState({ message: '' });
-    window.location.reload();
+    callback();
   };
 
   public render() {
