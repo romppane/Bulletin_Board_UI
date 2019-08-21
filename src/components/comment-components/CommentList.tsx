@@ -7,13 +7,8 @@ type CommentListProps = {
 };
 
 export default class CommentList extends React.Component<CommentListProps> {
-  constructor(props: CommentListProps) {
-    super(props);
-  }
-
   public render() {
     const { list } = this.props;
-    console.log(list);
     if (list.length > 0) {
       return (
         <div>

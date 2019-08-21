@@ -4,6 +4,7 @@ import { Post } from '../../Types';
 
 type BulletinSubmitProps = {
   ownerId: number;
+  callback: Function;
 };
 
 type BulletinSubmitState = {
@@ -25,7 +26,7 @@ export default class BulletinSubmit extends React.Component<
   }
 
   callCreate = async (e: React.FormEvent<HTMLFormElement>) => {
-    const { ownerId } = this.props;
+    const { ownerId, callback } = this.props;
     const { title, message } = this.state;
     e.preventDefault();
     // GETS CATEGORY HARD CODED CURRENTLY
@@ -34,8 +35,7 @@ export default class BulletinSubmit extends React.Component<
       title: '',
       message: ''
     });
-    // Is there a better way to do this?
-    window.location.reload();
+    callback();
   };
 
   public render() {
