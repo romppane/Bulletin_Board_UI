@@ -19,6 +19,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       title: '',
       category: Categories.Default,
       message: '',
+      username: '',
       id: 0,
       ownerId: 0,
       views: 0,
