@@ -13,7 +13,11 @@ export default class CommentList extends React.Component<CommentListProps> {
       return (
         <div>
           {list.map(comment => (
-            <CommentMessage message={comment.message} key={comment.id} />
+            <CommentMessage
+              message={comment.message}
+              username={comment.username}
+              key={comment.id}
+            />
           ))}
         </div>
       );

@@ -48,12 +48,12 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
   };
 
   public render() {
-    const { isReady, title, ownerId, message, id, list } = this.state;
+    const { isReady, title, ownerId, username, message, id, list } = this.state;
     if (isReady) {
       return (
         <div>
           <Link to="/">Get back, get back, get back!</Link>
-          <Bulletin title={title} ownerId={ownerId} message={message} id={id} />
+          <Bulletin title={title} ownerId={ownerId} message={message} username={username} id={id} />
           <CommentList list={list} />
           <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
         </div>
