@@ -1,22 +1,23 @@
 import { Comment, Post, Categories } from '../Types';
 
 export const fetchUser = async (id: number) => {
-  const responce = await fetch(`http://localhost:3001/users/${id}`).then(res => res.json());
+  const responce = await fetch(`http://localhost:3001/v1/users/${id}`).then(res => res.json());
   return responce;
 };
 
 export const fetchPost = async (id: string) => {
-  const responce = await fetch(`http://localhost:3001/posts/${id}`).then(res => res.json());
+  const responce = await fetch(`http://localhost:3001/v1/posts/${id}`).then(res => res.json());
   return responce;
 };
 
 export const createComment = (comment: Comment) => {
-  return fetch('http://localhost:3001/comments', {
+  return fetch('http://localhost:3001/v1/comments', {
     method: 'POST',
     body: JSON.stringify({
       userId: comment.userId,
       postId: comment.postId,
-      message: comment.message
+      message: comment.message,
+      username: comment.username
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -25,13 +26,14 @@ export const createComment = (comment: Comment) => {
 };
 
 export const createPost = (post: Post) => {
-  return fetch('http://localhost:3001/posts', {
+  return fetch('http://localhost:3001/v1/posts', {
     method: 'POST',
     body: JSON.stringify({
       ownerId: post.ownerId,
       title: post.title,
       message: post.message,
-      category: Categories.Default
+      category: Categories.Default,
+      username: post.username
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -40,13 +42,13 @@ export const createPost = (post: Post) => {
 };
 
 export const fetchComments = async (id: string) => {
-  const responce = await fetch(`http://localhost:3001/posts/${id}/comments`).then(res =>
+  const responce = await fetch(`http://localhost:3001/v1/posts/${id}/comments`).then(res =>
     res.json()
   );
   return responce;
 };
 
 export const fetchPosts = async () => {
-  const responce = await fetch('http://localhost:3001/posts').then(res => res.json());
+  const responce = await fetch('http://localhost:3001/v1/posts').then(res => res.json());
   return responce;
 };
