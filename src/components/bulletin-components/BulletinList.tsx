@@ -18,6 +18,7 @@ export default class BulletinList extends React.Component<BulletinListProps> {
               title={bulletin.title}
               message={bulletin.message}
               username={bulletin.username}
+              createdAt={bulletin.createdAt}
               ownerId={bulletin.ownerId}
               id={bulletin.id}
               key={bulletin.id}

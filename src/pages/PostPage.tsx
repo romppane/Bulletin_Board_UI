@@ -20,6 +20,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       category: Categories.Default,
       message: '',
       username: '',
+      createdAt: '',
       id: 0,
       ownerId: 0,
       views: 0,
@@ -40,6 +41,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       category: post.category,
       message: post.message,
       username: post.username,
+      createdAt: post.createdAt,
       id: post.id,
       ownerId: post.ownerId,
       views: post.views,
@@ -49,13 +51,20 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
   };
 
   public render() {
-    const { isReady, title, ownerId, username, message, id, list } = this.state;
+    const { isReady, title, ownerId, username, message, createdAt, id, list } = this.state;
     if (isReady) {
       return (
         <div>
           <Link to="/">Get back, get back, get back!</Link>
           <hr />
-          <Bulletin title={title} ownerId={ownerId} message={message} username={username} id={id} />
+          <Bulletin
+            title={title}
+            ownerId={ownerId}
+            message={message}
+            username={username}
+            id={id}
+            createdAt={createdAt}
+          />
           <CommentList list={list} />
           <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
         </div>

@@ -8,6 +8,7 @@ export type Post = {
   category: Categories;
   message: string;
   username: string;
+  createdAt: string;
   id: number;
   ownerId: number;
   views: number;
