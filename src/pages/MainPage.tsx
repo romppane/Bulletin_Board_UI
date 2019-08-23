@@ -36,6 +36,7 @@ export default class MainPage extends React.Component<{}, MainPageState> {
     return (
       <div>
         <BulletinSubmit ownerId={1} callback={this.getPageData} />
+        <hr />
         <BulletinList list={list} />
       </div>
     );

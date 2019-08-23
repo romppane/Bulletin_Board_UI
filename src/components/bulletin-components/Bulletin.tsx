@@ -23,17 +23,14 @@ export default class Bulletin extends React.Component<BulletinProps> {
               pathname: `/post/${id}`
             }}
           >
-            <div>
-              <BulletinHeader title={title} />
-            </div>
+            <BulletinHeader title={title} />
           </Link>
-          <div>
-            <Username username={username} />
-          </div>
+          <Username username={username} />
         </div>
         <div>
           <BulletinMessage message={message} />
         </div>
+        <hr />
       </div>
     );
   }

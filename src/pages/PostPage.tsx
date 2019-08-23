@@ -39,6 +39,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       title: post.title,
       category: post.category,
       message: post.message,
+      username: post.username,
       id: post.id,
       ownerId: post.ownerId,
       views: post.views,
@@ -53,6 +54,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       return (
         <div>
           <Link to="/">Get back, get back, get back!</Link>
+          <hr />
           <Bulletin title={title} ownerId={ownerId} message={message} username={username} id={id} />
           <CommentList list={list} />
           <CommentSubmit userId={1} postId={id} callback={this.getPageData} />

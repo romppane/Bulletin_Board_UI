@@ -5,6 +5,6 @@ type UsernameProps = { username: string };
 export default class Username extends React.Component<UsernameProps> {
   public render() {
     const { username } = this.props;
-    return <p>{username}</p>;
+    return <p>Username: {username}</p>;
   }
 }
