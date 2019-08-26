@@ -70,7 +70,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
         </div>
       );
     } else {
-      return <div>NOT READY</div>;
+      return <div>Loading..</div>;
     }
   }
 }
