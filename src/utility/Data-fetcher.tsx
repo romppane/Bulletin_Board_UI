@@ -1,9 +1,6 @@
 import { Comment, Post, Categories } from '../Types';
-import * as dotenv from 'dotenv';
 
-dotenv.config();
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
-console.log(process.env.REACT_APP_API_URL);
 
 export const fetchUser = async (id: number) => {
   const responce = await fetch(`${API_URL}/v1/users/${id}`).then(res => res.json());
