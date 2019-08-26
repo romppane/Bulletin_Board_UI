@@ -1,6 +1,6 @@
 import { Comment, Post, Categories } from '../Types';
 
-const URL = process.env.URL || 'http://localhost:3001';
+const URL = process.env.URL;
 
 export const fetchUser = async (id: number) => {
   const responce = await fetch(`${URL}/v1/users/${id}`).then(res => res.json());
