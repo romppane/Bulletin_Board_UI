@@ -56,6 +56,7 @@ typings/
 .env
 
 # next.js build output
+build/
 .next
 
 # misc
