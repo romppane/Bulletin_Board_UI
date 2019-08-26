@@ -1,39 +1,23 @@
 import * as React from 'react';
 import CommentMessage from './CommentMessage';
 import { Comment } from '../../Types';
-import { fetchComments } from '../../utility/Data-fetcher';
 
 type CommentListProps = {
-  id: number;
-};
-
-type CommentListState = {
   list: Comment[];
 };
 
-export default class CommentList extends React.Component<CommentListProps, CommentListState> {
-  constructor(props: CommentListProps) {
-    super(props);
-
-    this.state = {
-      list: []
-    };
-  }
-
-  componentDidMount() {
-    const { id } = this.props;
-    fetchComments(id)
-      .then(json => this.setState({ list: json }))
-      .catch(error => console.log(error));
-  }
-
+export default class CommentList extends React.Component<CommentListProps> {
   public render() {
-    const { list } = this.state;
+    const { list } = this.props;
     if (list.length > 0) {
       return (
         <div>
           {list.map(comment => (
-            <CommentMessage message={comment.message} key={comment.id} />
+            <CommentMessage
+              message={comment.message}
+              username={comment.username}
+              key={comment.id}
+            />
           ))}
         </div>
       );

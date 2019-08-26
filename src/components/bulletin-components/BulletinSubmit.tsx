@@ -4,11 +4,13 @@ import { Post } from '../../Types';
 
 type BulletinSubmitProps = {
   ownerId: number;
+  callback: Function;
 };
 
 type BulletinSubmitState = {
   title: string;
   message: string;
+  username: string;
 };
 
 export default class BulletinSubmit extends React.Component<
@@ -20,26 +22,27 @@ export default class BulletinSubmit extends React.Component<
 
     this.state = {
       title: '',
-      message: ''
+      message: '',
+      username: ''
     };
   }
 
   callCreate = async (e: React.FormEvent<HTMLFormElement>) => {
-    const { ownerId } = this.props;
-    const { title, message } = this.state;
+    const { ownerId, callback } = this.props;
+    const { title, message, username } = this.state;
     e.preventDefault();
     // GETS CATEGORY HARD CODED CURRENTLY
-    await createPost({ ownerId, title, message } as Post);
+    await createPost({ ownerId, title, message, username } as Post);
     this.setState({
       title: '',
-      message: ''
+      message: '',
+      username: ''
     });
-    // Is there a better way to do this?
-    window.location.reload();
+    callback();
   };
 
   public render() {
-    const { message, title } = this.state;
+    const { message, title, username } = this.state;
     return (
       <form onSubmit={e => this.callCreate(e)}>
         <input
@@ -53,6 +56,12 @@ export default class BulletinSubmit extends React.Component<
           value={message}
           placeholder="Enter your message"
           onChange={e => this.setState({ message: e.target.value })}
+        />
+        <input
+          name="Username"
+          value={username}
+          placeholder="Who is this?"
+          onChange={e => this.setState({ username: e.target.value })}
         />
         <button type="submit">Post</button>
       </form>

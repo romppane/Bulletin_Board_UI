@@ -4,12 +4,12 @@ import CommentList from '../components/comment-components/CommentList';
 import { RouteComponentProps } from 'react-router';
 import CommentSubmit from '../components/comment-components/CommentSubmit';
 import { Link } from 'react-router-dom';
-import { Post, Categories } from '../Types';
-import { fetchPost } from '../utility/Data-fetcher';
+import { Post, Categories, Comment } from '../Types';
+import { fetchPost, fetchComments } from '../utility/Data-fetcher';
 
 interface PostPageProps extends RouteComponentProps<{ id: string }> {}
 
-type PostTypeState = Post & { isReady: boolean };
+type PostTypeState = Post & { isReady: boolean; list: Comment[] };
 
 export default class PostPage extends React.Component<PostPageProps, PostTypeState> {
   constructor(props: PostPageProps) {
@@ -19,9 +19,12 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
       title: '',
       category: Categories.Default,
       message: '',
+      username: '',
+      createdAt: '',
       id: 0,
       ownerId: 0,
       views: 0,
+      list: [],
       isReady: false
     };
   }
@@ -30,29 +33,40 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
     this.getPageData();
   }
 
-  getPageData = () => {
-    fetchPost(this.props.match.params.id).then(result => {
-      this.setState({
-        title: result.title,
-        category: result.category,
-        message: result.message,
-        id: result.id,
-        ownerId: result.ownerId,
-        views: result.views,
-        isReady: true
-      });
+  getPageData = async () => {
+    const post = await fetchPost(this.props.match.params.id);
+    const comments = await fetchComments(this.props.match.params.id);
+    this.setState({
+      title: post.title,
+      category: post.category,
+      message: post.message,
+      username: post.username,
+      createdAt: post.createdAt,
+      id: post.id,
+      ownerId: post.ownerId,
+      views: post.views,
+      list: comments,
+      isReady: true
     });
   };
 
   public render() {
-    const { isReady, title, ownerId, message, id } = this.state;
+    const { isReady, title, ownerId, username, message, createdAt, id, list } = this.state;
     if (isReady) {
       return (
         <div>
           <Link to="/">Get back, get back, get back!</Link>
-          <Bulletin title={title} ownerId={ownerId} message={message} id={id} />
-          <CommentList id={id} />
-          <CommentSubmit userId={1} postId={id} />
+          <hr />
+          <Bulletin
+            title={title}
+            ownerId={ownerId}
+            message={message}
+            username={username}
+            id={id}
+            createdAt={createdAt}
+          />
+          <CommentList list={list} />
+          <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
         </div>
       );
     } else {
