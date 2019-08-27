@@ -4,6 +4,7 @@ import BulletinMessage from './BulletinMessage';
 import { Link } from 'react-router-dom';
 import Username from '../Username';
 import BulletinFooter from './BulletinFooter';
+import './Bulletin.css';
 
 type BulletinProps = {
   title: string;
@@ -18,8 +19,8 @@ export default class Bulletin extends React.Component<BulletinProps> {
   public render() {
     const { title, username, message, id, createdAt } = this.props;
     return (
-      <div>
-        <div>
+      <div className="bulletin">
+        <div className="bulletinHeader">
           <Link
             to={{
               pathname: `/post/${id}`

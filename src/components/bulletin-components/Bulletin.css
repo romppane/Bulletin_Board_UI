@@ -1,0 +1,24 @@
+.bulletinList {
+  display: grid;
+  margin: 10% 25% 0%;
+}
+
+.bulletin {
+  background-color: whitesmoke;
+  border: #333333 1px solid;
+}
+
+.bulletinHeader {
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+}
+
+.title {
+  padding: 10px;
+  text-align: start;
+}
+
+.username {
+  padding: 10px;
+  text-align: end;
+}

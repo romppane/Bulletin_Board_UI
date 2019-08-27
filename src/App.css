@@ -1,12 +1,3 @@
 .App {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  text-align: center;
-}
-.left {
-  background-color: cornflowerblue;
-}
-
-.right {
-  background-color: blueviolet;
+  background-color: rgb(223, 172, 172);
 }

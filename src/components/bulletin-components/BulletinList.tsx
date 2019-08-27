@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Bulletin from './Bulletin';
 import { Post } from '../../Types';
+import './Bulletin.css';
 
 type BulletinListProps = {
   list: Post[];
@@ -12,7 +13,7 @@ export default class BulletinList extends React.Component<BulletinListProps> {
 
     if (list.length > 0) {
       return (
-        <div>
+        <div className="bulletinList">
           {list.map(bulletin => (
             <Bulletin
               title={bulletin.title}

@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 25fr;
+  text-align: center;
+}
+
+.submit {
+  background-color: brown;
+  grid-column: 1/4;
+  border: #333333 1px solid;
+}

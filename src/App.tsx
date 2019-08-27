@@ -7,14 +7,10 @@ import PostPage from './pages/PostPage';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <div className="left">left</div>
-      <div className="middle">
-        <Router>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/post/:id" component={PostPage} />
-        </Router>
-      </div>
-      <div className="right">right</div>
+      <Router>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/post/:id" component={PostPage} />
+      </Router>
     </div>
   );
 };

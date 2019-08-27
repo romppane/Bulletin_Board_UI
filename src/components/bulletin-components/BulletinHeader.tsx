@@ -7,6 +7,10 @@ type BulletinHeaderProps = {
 export default class BulletinHeader extends React.Component<BulletinHeaderProps> {
   public render() {
     const { title } = this.props;
-    return <div>{title}</div>;
+    return (
+      <div className="title">
+        <h2>{title}</h2>
+      </div>
+    );
   }
 }
