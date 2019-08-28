@@ -20,19 +20,19 @@ export default class Bulletin extends React.Component<BulletinProps> {
     const { title, username, message, id, createdAt } = this.props;
     return (
       <div className="bulletin">
-        <div className="bulletinHeader">
-          <Link
-            to={{
-              pathname: `/post/${id}`
-            }}
-          >
+        <Link
+          to={{
+            pathname: `/post/${id}`
+          }}
+        >
+          <div className="bulletinHeader">
             <BulletinHeader title={title} />
-          </Link>
-          <Username username={username} createdAt={createdAt} />
-        </div>
-        <div>
-          <BulletinMessage message={message} />
-        </div>
+            <Username username={username} createdAt={createdAt} />
+          </div>
+          <div>
+            <BulletinMessage message={message} />
+          </div>
+        </Link>
       </div>
     );
   }

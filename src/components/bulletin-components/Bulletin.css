@@ -14,13 +14,13 @@
   color: rgb(94, 93, 93);
 }
 
+.bulletin a {
+  text-decoration: none;
+}
+
 .bulletinHeader {
   display: grid;
   grid-template-columns: 70fr 30fr;
-}
-
-.bulletinHeader a {
-  text-decoration: none;
 }
 
 .title {
@@ -40,4 +40,6 @@
 
 .message {
   color: #000;
+  padding: 10px;
+  text-align: start;
 }

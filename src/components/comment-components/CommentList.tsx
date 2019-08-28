@@ -16,7 +16,7 @@ export default class CommentList extends React.Component<CommentListProps> {
             <CommentMessage
               message={comment.message}
               username={comment.username}
-              createdAt=""
+              createdAt={comment.createdAt}
               key={comment.id}
             />
           ))}

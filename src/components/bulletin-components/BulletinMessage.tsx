@@ -4,7 +4,9 @@ type BulletinMessageProps = {
   message: string;
 };
 
-type BulletinMessageState = {};
+type BulletinMessageState = {
+  displayMessage: string;
+};
 
 export default class BulletinMessage extends React.Component<
   BulletinMessageProps,
@@ -12,10 +14,29 @@ export default class BulletinMessage extends React.Component<
 > {
   constructor(props: BulletinMessageProps) {
     super(props);
+
+    this.state = {
+      displayMessage: ''
+    };
+  }
+
+  componentDidMount() {
+    const { message } = this.props;
+
+    if (message.length > 50) {
+      const substring = message.substring(0, 50) + '..';
+      this.setState({
+        displayMessage: substring
+      });
+    } else {
+      this.setState({
+        displayMessage: message
+      });
+    }
   }
 
   public render() {
-    const { message } = this.props;
-    return <div>{message}</div>;
+    const { displayMessage } = this.state;
+    return <div className="message">{displayMessage}</div>;
   }
 }
