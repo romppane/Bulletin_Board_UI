@@ -28,12 +28,11 @@ export default class Bulletin extends React.Component<BulletinProps> {
           >
             <BulletinHeader title={title} />
           </Link>
-          <Username username={username} />
+          <Username username={username} createdAt={createdAt} />
         </div>
         <div>
           <BulletinMessage message={message} />
         </div>
-        <BulletinFooter createdAt={createdAt} />
       </div>
     );
   }

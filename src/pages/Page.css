@@ -6,6 +6,20 @@
 }
 
 .submit {
+  display: block;
   background-color: grey;
   grid-column: 1/4;
+}
+
+.submit form {
+  width: 25%;
+  display: grid;
+}
+
+.submit form textarea,
+.submit form button {
+  resize: none;
+  grid-column: 1/3;
+  font-family: inherit;
+  font-size: 90%;
 }

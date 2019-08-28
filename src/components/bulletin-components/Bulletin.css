@@ -10,6 +10,10 @@
   box-shadow: 0.1em 0.1em #646464;
 }
 
+.bulletin p {
+  color: rgb(94, 93, 93);
+}
+
 .bulletinHeader {
   display: grid;
   grid-template-columns: 70fr 30fr;
@@ -32,4 +36,8 @@
 .username {
   padding: 10px;
   text-align: end;
+}
+
+.message {
+  color: #000;
 }

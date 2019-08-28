@@ -21,6 +21,10 @@ export default class BulletinFooter extends React.Component<
     const { createdAt } = this.props;
     const conversion = new Date(createdAt);
     const daysAgo = formatDistanceToNow(conversion);
-    return <div>Sent {daysAgo} ago.</div>;
+    return (
+      <div>
+        <p>Sent {daysAgo} ago.</p>
+      </div>
+    );
   }
 }

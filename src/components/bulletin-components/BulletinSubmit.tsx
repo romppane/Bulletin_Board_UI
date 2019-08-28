@@ -52,16 +52,16 @@ export default class BulletinSubmit extends React.Component<
           onChange={e => this.setState({ title: e.target.value })}
         />
         <input
-          name="Message"
-          value={message}
-          placeholder="Enter your message"
-          onChange={e => this.setState({ message: e.target.value })}
-        />
-        <input
           name="Username"
           value={username}
           placeholder="Who is this?"
           onChange={e => this.setState({ username: e.target.value })}
+        />
+        <textarea
+          name="Message"
+          value={message}
+          placeholder="Enter your message"
+          onChange={e => this.setState({ message: e.target.value })}
         />
         <button type="submit">Post</button>
       </form>
