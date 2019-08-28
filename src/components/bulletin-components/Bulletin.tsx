@@ -34,7 +34,6 @@ export default class Bulletin extends React.Component<BulletinProps> {
           <BulletinMessage message={message} />
         </div>
         <BulletinFooter createdAt={createdAt} />
-        <hr />
       </div>
     );
   }

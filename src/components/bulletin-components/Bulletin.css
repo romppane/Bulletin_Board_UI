@@ -1,11 +1,13 @@
 .bulletinList {
   display: grid;
+  row-gap: 0.5em;
   margin: 10% 25% 0%;
 }
 
 .bulletin {
   background-color: whitesmoke;
-  border: #333333 1px solid;
+  border-radius: 0.2em;
+  box-shadow: 0.1em 0.1em #646464;
 }
 
 .bulletinHeader {
@@ -13,9 +15,18 @@
   grid-template-columns: 70fr 30fr;
 }
 
+.bulletinHeader a {
+  text-decoration: none;
+}
+
 .title {
   padding: 10px;
   text-align: start;
+}
+
+.title h2 {
+  color: #000;
+  text-decoration: none;
 }
 
 .username {

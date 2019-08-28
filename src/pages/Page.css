@@ -6,7 +6,6 @@
 }
 
 .submit {
-  background-color: brown;
+  background-color: grey;
   grid-column: 1/4;
-  border: #333333 1px solid;
 }
