@@ -3,7 +3,6 @@ import BulletinHeader from './BulletinHeader';
 import BulletinMessage from './BulletinMessage';
 import { Link } from 'react-router-dom';
 import Username from '../Username';
-import BulletinFooter from './BulletinFooter';
 import './Bulletin.css';
 
 type BulletinProps = {

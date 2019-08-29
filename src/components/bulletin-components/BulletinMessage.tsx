@@ -23,7 +23,7 @@ export default class BulletinMessage extends React.Component<
   componentDidMount() {
     const { message } = this.props;
 
-    if (message.length > 50) {
+    if (message.length > 48) {
       const substring = message.substring(0, 50) + '..';
       this.setState({
         displayMessage: substring

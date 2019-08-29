@@ -1,7 +1,7 @@
 .bulletinList {
   display: grid;
   row-gap: 0.5em;
-  margin: 10% 25% 0%;
+  margin: 3% 0% 1%;
 }
 
 .bulletin {

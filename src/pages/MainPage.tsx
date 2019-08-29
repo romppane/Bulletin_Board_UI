@@ -36,11 +36,10 @@ export default class MainPage extends React.Component<{}, MainPageState> {
     const { list } = this.state;
     return (
       <div className="container">
-        <div className="submit">
-          <BulletinSubmit ownerId={1} callback={this.getPageData} />
-        </div>
+        <div className="header"></div>
         <div className="left"></div>
         <div className="listing">
+          <BulletinSubmit ownerId={1} callback={this.getPageData} />
           <BulletinList list={list} />
         </div>
         <div className="right"></div>
