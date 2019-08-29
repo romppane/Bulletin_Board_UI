@@ -12,8 +12,8 @@ export default class CommentMessage extends React.Component<CommentMessageProps>
     const { message, username, createdAt } = this.props;
     return (
       <div>
-        <p>Message: {message}</p>
         <Username username={username} createdAt={createdAt} />
+        <p>{message}</p>
         <hr />
       </div>
     );

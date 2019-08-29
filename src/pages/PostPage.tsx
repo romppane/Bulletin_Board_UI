@@ -71,6 +71,8 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
               createdAt={createdAt}
             />
             <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
+            <label>Comments</label>
+            <hr />
             <CommentList list={list} />
           </div>
           <div className="right"></div>
