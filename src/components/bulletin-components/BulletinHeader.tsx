@@ -4,41 +4,16 @@ type BulletinHeaderProps = {
   title: string;
 };
 
-type BulletinHeaderState = {
-  displayTitle: string;
-};
-
-export default class BulletinHeader extends React.Component<
-  BulletinHeaderProps,
-  BulletinHeaderState
-> {
+export default class BulletinHeader extends React.Component<BulletinHeaderProps> {
   constructor(props: BulletinHeaderProps) {
     super(props);
-
-    this.state = {
-      displayTitle: ''
-    };
   }
 
-  componentDidMount() {
-    const { title } = this.props;
-
-    if (title.length > 35) {
-      const substring = title.substring(0, 33) + '..';
-      this.setState({
-        displayTitle: substring
-      });
-    } else {
-      this.setState({
-        displayTitle: title
-      });
-    }
-  }
   public render() {
-    const { displayTitle } = this.state;
+    const { title } = this.props;
     return (
       <div className="title">
-        <h2>{displayTitle}</h2>
+        <h2>{title}</h2>
       </div>
     );
   }
