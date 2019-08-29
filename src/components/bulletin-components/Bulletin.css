@@ -36,6 +36,7 @@
 .username {
   padding: 10px;
   text-align: end;
+  font-size: 80%;
 }
 
 .message {

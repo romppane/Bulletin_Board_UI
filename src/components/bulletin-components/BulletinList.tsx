@@ -12,9 +12,14 @@ export default class BulletinList extends React.Component<BulletinListProps> {
     const { list } = this.props;
 
     if (list.length > 0) {
+      const organizedList = list.sort((a, b) => {
+        const aDate = new Date(a.createdAt);
+        const bDate = new Date(b.createdAt);
+        return aDate > bDate ? -1 : aDate < bDate ? 1 : 0;
+      });
       return (
         <div className="bulletinList">
-          {list.map(bulletin => (
+          {organizedList.map(bulletin => (
             <Bulletin
               title={bulletin.title}
               message={bulletin.message}
