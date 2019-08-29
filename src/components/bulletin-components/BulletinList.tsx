@@ -21,7 +21,7 @@ export default class BulletinList extends React.Component<BulletinListProps> {
       return (
         <div className="bulletinList">
           {organizedList.map(bulletin => (
-            <Link to={{ pathname: `/post/${bulletin.id}` }}>
+            <Link key={bulletin.id} to={{ pathname: `/post/${bulletin.id}` }}>
               <Bulletin
                 title={bulletin.title}
                 message={bulletin.message}
@@ -29,7 +29,6 @@ export default class BulletinList extends React.Component<BulletinListProps> {
                 createdAt={bulletin.createdAt}
                 ownerId={bulletin.ownerId}
                 id={bulletin.id}
-                key={bulletin.id}
               />
             </Link>
           ))}

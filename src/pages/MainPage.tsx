@@ -36,18 +36,20 @@ export default class MainPage extends React.Component<{}, MainPageState> {
   public render() {
     const { list } = this.state;
     return (
-      <div className="container">
+      <div>
         <div className="header">
-          <Link to="/">
-            <h1>Get back, get back, get back!</h1>
-          </Link>
+          <div className="container">
+            <Link to="/">
+              <h1>Get back, get back, get back!</h1>
+            </Link>
+          </div>
         </div>
-        <div className="left"></div>
-        <div className="listing">
-          <BulletinSubmit ownerId={1} callback={this.getPageData} />
-          <BulletinList list={list} />
+        <div className="container">
+          <div className="listing">
+            <BulletinSubmit ownerId={1} callback={this.getPageData} />
+            <BulletinList list={list} />
+          </div>
         </div>
-        <div className="right"></div>
       </div>
     );
   }
