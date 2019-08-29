@@ -54,25 +54,26 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
     const { isReady, title, ownerId, username, message, createdAt, id, list } = this.state;
     if (isReady) {
       return (
-        <div>
-          <Link to="/">Get back, get back, get back!</Link>
-          <hr />
-          <div className="container">
-            <div className="left"></div>
-            <div className="listing">
-              <Bulletin
-                title={title}
-                ownerId={ownerId}
-                message={message}
-                username={username}
-                id={id}
-                createdAt={createdAt}
-              />
-              <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
-              <CommentList list={list} />
-            </div>
-            <div className="right"></div>
+        <div className="container">
+          <div className="header">
+            <Link to="/">
+              <h1>Get back, get back, get back!</h1>
+            </Link>
           </div>
+          <div className="left"></div>
+          <div className="listing">
+            <Bulletin
+              title={title}
+              ownerId={ownerId}
+              message={message}
+              username={username}
+              id={id}
+              createdAt={createdAt}
+            />
+            <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
+            <CommentList list={list} />
+          </div>
+          <div className="right"></div>
         </div>
       );
     } else {

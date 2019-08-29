@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CommentMessage from './CommentMessage';
 import { Comment } from '../../Types';
+import './Comment.css';
 
 type CommentListProps = {
   list: Comment[];
@@ -11,7 +12,7 @@ export default class CommentList extends React.Component<CommentListProps> {
     const { list } = this.props;
     if (list.length > 0) {
       return (
-        <div>
+        <div className="commentList">
           {list.map(comment => (
             <CommentMessage
               message={comment.message}

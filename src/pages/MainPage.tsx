@@ -4,6 +4,7 @@ import BulletinSubmit from '../components/bulletin-components/BulletinSubmit';
 import { Post } from '../Types';
 import { fetchPosts } from '../utility/Data-fetcher';
 import './Page.css';
+import { Link } from 'react-router-dom';
 
 type MainPageState = {
   list: Post[];
@@ -37,7 +38,9 @@ export default class MainPage extends React.Component<{}, MainPageState> {
     return (
       <div className="container">
         <div className="header">
-          <label>Forum</label>
+          <Link to="/">
+            <h1>Get back, get back, get back!</h1>
+          </Link>
         </div>
         <div className="left"></div>
         <div className="listing">

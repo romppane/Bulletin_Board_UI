@@ -5,10 +5,23 @@
 
 .header {
   display: block;
-  height: 3em;
-  width: 100%;
   background-color: grey;
+  justify-items: center;
   grid-column: 1/4;
+}
+
+.header h1 {
+  font-size: 125%;
+  color: white;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.listing {
+  background-color: white;
+  box-shadow: 0.2em 0em white;
 }
 
 .listing form {
