@@ -2,6 +2,7 @@ import * as React from 'react';
 import Bulletin from './Bulletin';
 import { Post } from '../../Types';
 import './Bulletin.css';
+import { Link } from 'react-router-dom';
 
 type BulletinListProps = {
   list: Post[];
@@ -20,15 +21,17 @@ export default class BulletinList extends React.Component<BulletinListProps> {
       return (
         <div className="bulletinList">
           {organizedList.map(bulletin => (
-            <Bulletin
-              title={bulletin.title}
-              message={bulletin.message}
-              username={bulletin.username}
-              createdAt={bulletin.createdAt}
-              ownerId={bulletin.ownerId}
-              id={bulletin.id}
-              key={bulletin.id}
-            />
+            <Link to={{ pathname: `/post/${bulletin.id}` }}>
+              <Bulletin
+                title={bulletin.title}
+                message={bulletin.message}
+                username={bulletin.username}
+                createdAt={bulletin.createdAt}
+                ownerId={bulletin.ownerId}
+                id={bulletin.id}
+                key={bulletin.id}
+              />
+            </Link>
           ))}
         </div>
       );

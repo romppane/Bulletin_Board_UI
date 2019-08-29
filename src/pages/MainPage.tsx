@@ -36,7 +36,9 @@ export default class MainPage extends React.Component<{}, MainPageState> {
     const { list } = this.state;
     return (
       <div className="container">
-        <div className="header"></div>
+        <div className="header">
+          <label>Forum</label>
+        </div>
         <div className="left"></div>
         <div className="listing">
           <BulletinSubmit ownerId={1} callback={this.getPageData} />

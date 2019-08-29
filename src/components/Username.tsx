@@ -7,13 +7,14 @@ export default class Username extends React.Component<UsernameProps> {
   public render() {
     const { username, createdAt } = this.props;
     const conversion = new Date(createdAt);
-    const daysAgo = formatDistanceToNow(conversion);
+    const daysAgo = formatDistanceToNow(conversion).replace('about', '');
+
     return (
       <div className="username">
         <p>
-          {daysAgo} ago by
+          Posted by {username}
           <br />
-          {username}
+          {daysAgo} ago
         </p>
       </div>
     );

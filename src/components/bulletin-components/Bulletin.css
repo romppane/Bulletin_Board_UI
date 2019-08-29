@@ -4,6 +4,10 @@
   margin: 3% 0% 1%;
 }
 
+.bulletinList a {
+  text-decoration: none;
+}
+
 .bulletin {
   background-color: whitesmoke;
   border-radius: 0.2em;
@@ -12,10 +16,6 @@
 
 .bulletin p {
   color: rgb(94, 93, 93);
-}
-
-.bulletin a {
-  text-decoration: none;
 }
 
 .bulletinHeader {
