@@ -6,6 +6,7 @@ import CommentSubmit from '../components/comment-components/CommentSubmit';
 import { Link } from 'react-router-dom';
 import { Post, Categories, Comment } from '../Types';
 import { fetchPost, fetchComments } from '../utility/Data-fetcher';
+import ErrorHandler from '../components/ErrorHandler';
 
 interface PostPageProps extends RouteComponentProps<{ id: string }> {}
 
@@ -54,32 +55,34 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
     const { isReady, title, ownerId, username, message, createdAt, id, list } = this.state;
     if (isReady) {
       return (
-        <div>
-          <div className="header">
+        <ErrorHandler>
+          <div>
+            <div className="header">
+              <div className="container">
+                <Link to="/">
+                  <h1>Get back, get back, get back!</h1>
+                </Link>
+              </div>
+            </div>
             <div className="container">
-              <Link to="/">
-                <h1>Get back, get back, get back!</h1>
-              </Link>
+              <div className="listing">
+                <Bulletin
+                  title={title}
+                  ownerId={ownerId}
+                  message={message}
+                  username={username}
+                  id={id}
+                  createdAt={createdAt}
+                  truncateText={false}
+                />
+                <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
+                <label>Comments</label>
+                <hr />
+                <CommentList list={list} />
+              </div>
             </div>
           </div>
-          <div className="container">
-            <div className="listing">
-              <Bulletin
-                title={title}
-                ownerId={ownerId}
-                message={message}
-                username={username}
-                id={id}
-                createdAt={createdAt}
-                truncateText={false}
-              />
-              <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
-              <label>Comments</label>
-              <hr />
-              <CommentList list={list} />
-            </div>
-          </div>
-        </div>
+        </ErrorHandler>
       );
     } else {
       return <div>Loading..</div>;
