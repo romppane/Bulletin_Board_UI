@@ -29,6 +29,7 @@ export default class BulletinList extends React.Component<BulletinListProps> {
                 createdAt={bulletin.createdAt}
                 ownerId={bulletin.ownerId}
                 id={bulletin.id}
+                truncateText={true}
               />
             </Link>
           ))}

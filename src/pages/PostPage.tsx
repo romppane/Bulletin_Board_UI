@@ -71,6 +71,7 @@ export default class PostPage extends React.Component<PostPageProps, PostTypeSta
                 username={username}
                 id={id}
                 createdAt={createdAt}
+                truncateText={false}
               />
               <CommentSubmit userId={1} postId={id} callback={this.getPageData} />
               <label>Comments</label>

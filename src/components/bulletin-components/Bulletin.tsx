@@ -1,6 +1,4 @@
 import * as React from 'react';
-import BulletinHeader from './BulletinHeader';
-import BulletinMessage from './BulletinMessage';
 import Username from '../Username';
 import './Bulletin.css';
 
@@ -11,20 +9,21 @@ type BulletinProps = {
   username: string;
   createdAt: string;
   id: number;
+  truncateText: boolean;
 };
 
 export default class Bulletin extends React.Component<BulletinProps> {
   public render() {
-    const { title, username, message, createdAt } = this.props;
+    const { title, username, message, createdAt, truncateText } = this.props;
+    const renderedMessage =
+      truncateText && message.length > 48 ? message.substring(0, 50) + '..' : message;
     return (
       <div className="bulletin">
         <div className="bulletinHeader">
-          <BulletinHeader title={title} />
+          <h2>{title}</h2>
           <Username username={username} createdAt={createdAt} />
         </div>
-        <div>
-          <BulletinMessage message={message} />
-        </div>
+        <div className="message">{renderedMessage}</div>
       </div>
     );
   }
