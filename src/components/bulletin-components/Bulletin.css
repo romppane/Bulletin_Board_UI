@@ -1,0 +1,46 @@
+.bulletinList {
+  display: grid;
+  row-gap: 16px;
+  margin: 3% 0% 1%;
+}
+
+.bulletinList a {
+  text-decoration: none;
+}
+
+.bulletin {
+  padding: 24px;
+  background-color: white;
+  border-radius: 0.2em;
+  box-shadow: 0em 0.1em 8px rgba(0, 0, 0, 0.2);
+}
+
+.bulletin p {
+  color: rgb(94, 93, 93);
+  margin-top: 0;
+}
+
+.bulletinHeader {
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+}
+
+.bulletinHeader h2 {
+  text-align: start;
+  color: #000;
+  font-size: 120%;
+  text-decoration: none;
+  margin-top: 0%;
+  word-break: break-all;
+}
+
+.username {
+  text-align: end;
+  font-size: 80%;
+}
+
+.message {
+  color: #000;
+  text-align: start;
+  word-break: break-all;
+}

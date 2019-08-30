@@ -17,6 +17,7 @@ export type Post = {
 export type Comment = {
   message: string;
   username: string;
+  createdAt: string;
   id: number;
   userId: number;
   postId: number;
