@@ -16,7 +16,7 @@ export default class BulletinList extends React.Component<BulletinListProps> {
       const organizedList = list.sort((a, b) => {
         const aDate = new Date(a.createdAt);
         const bDate = new Date(b.createdAt);
-        return aDate > bDate ? -1 : aDate < bDate ? 1 : 0;
+        return bDate.getTime() - aDate.getTime();
       });
       return (
         <div className="bulletinList">
